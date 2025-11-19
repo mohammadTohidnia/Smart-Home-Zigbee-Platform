@@ -1,0 +1,7 @@
+Added Pin To Net: NetName=RX_Console Pin=P3-2
+Added Pin To Net: NetName=RX_Console Pin=P4-2
+Added Net: Name=RX_Console
+Added Pin To Net: NetName=TX_Console Pin=P3-3
+Added Pin To Net: NetName=TX_Console Pin=P4-3
+Added Net: Name=TX_Console
+Added Room: Name=zigo_schem

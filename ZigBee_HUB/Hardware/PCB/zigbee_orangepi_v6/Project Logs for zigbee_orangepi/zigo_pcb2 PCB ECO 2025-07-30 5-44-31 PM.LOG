@@ -1,0 +1,340 @@
+Removed Pin From Net: NetName=RESET_KEY Pin=C4-2
+Removed Pin From Net: NetName=3.3v Pin=C5-1
+Removed Pin From Net: NetName=GND Pin=C5-2
+Removed Pin From Net: NetName=Input_OP Pin=C6-1
+Removed Pin From Net: NetName=GND Pin=C6-2
+Removed Pin From Net: NetName=LED1 Pin=R1-1
+Removed Pin From Net: NetName=NetLED1_A Pin=R1-2
+Removed Pin From Net: NetName=LED2 Pin=R2-1
+Removed Pin From Net: NetName=NetLED2_A Pin=R2-2
+Removed Pin From Net: NetName=LED3 Pin=R3-1
+Removed Pin From Net: NetName=NetLED3_A Pin=R3-2
+Removed Pin From Net: NetName=LED4 Pin=R4-1
+Removed Pin From Net: NetName=NetLED4_A Pin=R4-2
+Removed Pin From Net: NetName=NetQ1_1 Pin=R7-2
+Removed Pin From Net: NetName=GND Pin=R8-1
+Removed Pin From Net: NetName=NetQ1_1 Pin=R8-2
+Removed Pin From Net: NetName=NetQ1_3 Pin=R9-1
+Removed Pin From Net: NetName=+5 Pin=R9-2
+Removed Pin From Net: NetName=3.3v Pin=R10-1
+Removed Pin From Net: NetName=3.3v Pin=R12-1
+Removed Pin From Net: NetName=NetLED5_A Pin=R12-2
+Removed Pin From Net: NetName=3.3v Pin=U2-4
+Removed Member From Class: ClassName=zigo_schem Member=R12
+Change Component Footprint: Designator=C5 Old Footprint=CAPC3216X110N New Footprint=CAPC2012X90N
+Change Component Footprint: Designator=C6 Old Footprint=CAPC3216X110N New Footprint=CAPC2012X90N
+Change Component Footprint: Designator=C1 Old Footprint=CAP SMD New Footprint=CAPC2012X90N
+Change Component Footprint: Designator=C2 Old Footprint=CAP SMD New Footprint=CAPC2012X90N
+Change Component Footprint: Designator=C3 Old Footprint=CAP SMD New Footprint=CAPC2012X90N
+Change Component Footprint: Designator=C4 Old Footprint=CAP SMD New Footprint=CAPC2012X90N
+Change Component Footprint: Designator=LED1 Old Footprint=LEDRD254W50D305H520P New Footprint=LEDC2012X70N
+Change Component Footprint: Designator=LED2 Old Footprint=LEDRD254W50D305H520P New Footprint=LEDC2012X70N
+Change Component Footprint: Designator=LED3 Old Footprint=LEDRD254W50D305H520P New Footprint=LEDC2012X70N
+Change Component Footprint: Designator=LED4 Old Footprint=LEDRD254W50D305H520P New Footprint=LEDC2012X70N
+Change Component Footprint: Designator=LED5 Old Footprint=LEDRD254W50D305H520P New Footprint=LEDC2012X70N
+Change Component Footprint: Designator=R1 Old Footprint=RESISTOR SMD 1206 New Footprint=RESC2012X65N
+Change Component Footprint: Designator=R2 Old Footprint=RESISTOR SMD 1206 New Footprint=RESC2012X65N
+Change Component Footprint: Designator=R3 Old Footprint=RESISTOR SMD 1206 New Footprint=RESC2012X65N
+Change Component Footprint: Designator=R4 Old Footprint=RESISTOR SMD 1206 New Footprint=RESC2012X65N
+Change Component Footprint: Designator=R7 Old Footprint=Resistor SMD 1206 New Footprint=RESC2012X65N
+Change Component Footprint: Designator=R8 Old Footprint=Resistor SMD 1206 New Footprint=RESC2012X65N
+Change Component Footprint: Designator=R9 Old Footprint=Resistor SMD 1206 New Footprint=RESC2012X65N
+Change Component Footprint: Designator=R10 Old Footprint=RESISTOR SMD 1206 New Footprint=RESC2012X65N
+Change Component Footprint: Designator=R11 Old Footprint=RESISTOR SMD 1206 New Footprint=RESC2012X65N
+Change Component Comment : Designator=R8 Old Comment=10K New Comment=1K
+Change Component Comment : Designator=R9 Old Comment=10K New Comment=1K
+Change Component Comment : Designator=R10 Old Comment=10k New Comment=1K
+Change Component Comment : Designator=C5 Old Comment=C1206C106K3PACTU New Comment=10 uf
+Change Component Comment : Designator=C6 Old Comment=C1206C106K3PACTU New Comment=10 uf
+Change Component Comment : Designator=LED1 Old Comment=OVLAW4CB7 New Comment=597-3305-607F
+Change Component Comment : Designator=LED2 Old Comment=OVLAW4CB7 New Comment=597-3305-607F
+Change Component Comment : Designator=LED3 Old Comment=OVLAW4CB7 New Comment=597-3305-607F
+Change Component Comment : Designator=LED4 Old Comment=OVLAW4CB7 New Comment=597-3305-607F
+Change Component Comment : Designator=LED5 Old Comment=OVLAW4CB7 New Comment=597-3305-607F
+Change Component Comment : Designator=R1 Old Comment=SMD New Comment=1K
+Change Component Comment : Designator=R2 Old Comment=SMD New Comment=1K
+Change Component Comment : Designator=R3 Old Comment=SMD New Comment=1K
+Change Component Comment : Designator=R4 Old Comment=SMD New Comment=1K
+Change Component Designator: OldDesignator=P5 NewDesignator=P3
+Change component parameters: Designator = "C1" ("C1"); Footprint = "CAP SMD"; UniqueID = "\HDDXDZTH" ("\HDDXDZTH")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/VJ0805Y104KXXCW1BC/Vishay/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "Vishay Vitramon"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "VJ0805Y104KXXCW1BC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0805-2 VISHAY"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/VJ0805Y104KXXCW1BC/Vishay/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "C2" ("C2"); Footprint = "CAP SMD"; UniqueID = "\XTXZJDSS" ("\XTXZJDSS")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/VJ0805Y104KXXCW1BC/Vishay/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "Vishay Vitramon"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "VJ0805Y104KXXCW1BC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0805-2 VISHAY"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/VJ0805Y104KXXCW1BC/Vishay/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "C3" ("C3"); Footprint = "CAP SMD"; UniqueID = "\TZZUYILV" ("\TZZUYILV")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/VJ0805Y104KXXCW1BC/Vishay/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "Vishay Vitramon"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "VJ0805Y104KXXCW1BC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0805-2 VISHAY"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/VJ0805Y104KXXCW1BC/Vishay/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "C4" ("C4"); Footprint = "CAP SMD"; UniqueID = "\XHZJFLCZ" ("\XHZJFLCZ")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/VJ0805Y104KXXCW1BC/Vishay/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "Vishay Vitramon"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "VJ0805Y104KXXCW1BC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0805-2 VISHAY"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/VJ0805Y104KXXCW1BC/Vishay/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "C5" ("C5"); Footprint = "CAPC3216X110N"; UniqueID = "\DXBTGISA" ("\DXBTGISA")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/VJ0805Y104KXXCW1BC/Vishay/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "Vishay Vitramon"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "VJ0805Y104KXXCW1BC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0805-2 VISHAY"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/VJ0805Y104KXXCW1BC/Vishay/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "C6" ("C6"); Footprint = "CAPC3216X110N"; UniqueID = "\MXVEVKLX" ("\MXVEVKLX")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/VJ0805Y104KXXCW1BC/Vishay/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "Vishay Vitramon"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "VJ0805Y104KXXCW1BC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0805-2 VISHAY"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/VJ0805Y104KXXCW1BC/Vishay/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "LED1" ("LED1"); Footprint = "LEDRD254W50D305H520P"; UniqueID = "\EMWYDZEX" ("\EMWYDZEX")
+Change component parameters (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "597-3305-607F"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "LED2" ("LED2"); Footprint = "LEDRD254W50D305H520P"; UniqueID = "\COMSBJMX" ("\COMSBJMX")
+Change component parameters (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "597-3305-607F"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "LED3" ("LED3"); Footprint = "LEDRD254W50D305H520P"; UniqueID = "\YVCUTDBX" ("\YVCUTDBX")
+Change component parameters (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "597-3305-607F"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "LED4" ("LED4"); Footprint = "LEDRD254W50D305H520P"; UniqueID = "\UZSASWVU" ("\UZSASWVU")
+Change component parameters (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "597-3305-607F"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "LED5" ("LED5"); Footprint = "LEDRD254W50D305H520P"; UniqueID = "\RSNLTDMY" ("\RSNLTDMY")
+Change component parameters (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "597-3305-607F"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "R1" ("R1"); Footprint = "RESISTOR SMD 1206"; UniqueID = "\JXXTJBFS" ("\JXXTJBFS")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "EU_RoHS_Compliance"; Value = "Compliant"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "RN73C2A5K11BTD"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power_Rating"; Value = ".1 W"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Resistance"; Value = "5.11K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = ".1%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "R2" ("R2"); Footprint = "RESISTOR SMD 1206"; UniqueID = "\IKEUXKOB" ("\IKEUXKOB")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "EU_RoHS_Compliance"; Value = "Compliant"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "RN73C2A5K11BTD"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power_Rating"; Value = ".1 W"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Resistance"; Value = "5.11K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = ".1%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "R3" ("R3"); Footprint = "RESISTOR SMD 1206"; UniqueID = "\RXHCKQCM" ("\RXHCKQCM")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "EU_RoHS_Compliance"; Value = "Compliant"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "RN73C2A5K11BTD"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power_Rating"; Value = ".1 W"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Resistance"; Value = "5.11K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = ".1%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "R4" ("R4"); Footprint = "RESISTOR SMD 1206"; UniqueID = "\UUFLYBFK" ("\UUFLYBFK")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "EU_RoHS_Compliance"; Value = "Compliant"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "RN73C2A5K11BTD"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power_Rating"; Value = ".1 W"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Resistance"; Value = "5.11K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = ".1%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "R7" ("R7"); Footprint = "Resistor SMD 1206"; UniqueID = "\ZHYGZVOY" ("\ZHYGZVOY")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "EU_RoHS_Compliance"; Value = "Compliant"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "RN73C2A5K11BTD"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power_Rating"; Value = ".1 W"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Resistance"; Value = "5.11K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = ".1%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "R8" ("R8"); Footprint = "Resistor SMD 1206"; UniqueID = "\VYPGWZCP" ("\VYPGWZCP")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "EU_RoHS_Compliance"; Value = "Compliant"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "RN73C2A5K11BTD"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power_Rating"; Value = ".1 W"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Resistance"; Value = "5.11K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = ".1%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "R9" ("R9"); Footprint = "Resistor SMD 1206"; UniqueID = "\HEQDGHHQ" ("\HEQDGHHQ")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "EU_RoHS_Compliance"; Value = "Compliant"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "RN73C2A5K11BTD"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power_Rating"; Value = ".1 W"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Resistance"; Value = "5.11K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = ".1%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "R10" ("R10"); Footprint = "RESISTOR SMD 1206"; UniqueID = "\ZFKALTXB" ("\ZFKALTXB")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "EU_RoHS_Compliance"; Value = "Compliant"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "RN73C2A5K11BTD"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power_Rating"; Value = ".1 W"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Resistance"; Value = "5.11K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = ".1%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "R11" ("R11"); Footprint = "RESISTOR SMD 1206"; UniqueID = "\OSCWRQCP" ("\OSCWRQCP")
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "EU_RoHS_Compliance"; Value = "Compliant"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "RN73C2A5K11BTD"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power_Rating"; Value = ".1 W"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Resistance"; Value = "5.11K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = ".1%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C7(CAPC2012X90N)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/VJ0805Y104KXXCW1BC/Vishay/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Vishay Vitramon"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "VJ0805Y104KXXCW1BC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805-2 VISHAY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/VJ0805Y104KXXCW1BC/Vishay/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=P6(SAMTEC_HTSW-104-07-G-S)
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "HTSW-104-07-G-S"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=P7(SAMTEC_HTSW-104-07-G-S)
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "HTSW-104-07-G-S"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R5(RESC2012X65N)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "EU_RoHS_Compliance"; Value = "Compliant"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "RN73C2A5K11BTD"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power_Rating"; Value = ".1 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Resistance"; Value = "5.11K"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = ".1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R6(RESC2012X65N)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "EU_RoHS_Compliance"; Value = "Compliant"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "RN73C2A5K11BTD"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power_Rating"; Value = ".1 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Resistance"; Value = "5.11K"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/RN73C2A5K11BTD/TE+Connectivity+Passive+Product/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = ".1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=Input_OP Pin=C5-2
+Added Pin To Net: NetName=GND Pin=C6-1
+Added Pin To Net: NetName=3.3v Pin=C6-2
+Added Pin To Net: NetName=GND Pin=C7-1
+Added Pin To Net: NetName=RESET_KEY Pin=C7-2
+Added Pin To Net: NetName=3.3v Pin=P7-03
+Added Pin To Net: NetName=GND Pin=P7-04
+Added Pin To Net: NetName=RESET Pin=R1-1
+Added Pin To Net: NetName=3.3v Pin=R1-2
+Added Pin To Net: NetName=3.3v Pin=R2-2
+Added Pin To Net: NetName=NetQ1_1 Pin=R3-1
+Added Pin To Net: NetName=+5 Pin=R4-1
+Added Pin To Net: NetName=NetQ1_3 Pin=R4-2
+Added Pin To Net: NetName=NetQ1_1 Pin=R5-1
+Added Pin To Net: NetName=GND Pin=R5-2
+Added Pin To Net: NetName=LED1 Pin=R6-1
+Added Pin To Net: NetName=NetLED1_A Pin=R6-2
+Added Pin To Net: NetName=LED2 Pin=R7-1
+Added Pin To Net: NetName=NetLED2_A Pin=R7-2
+Added Pin To Net: NetName=3.3v Pin=R8-1
+Added Pin To Net: NetName=NetLED5_A Pin=R8-2
+Added Pin To Net: NetName=LED3 Pin=R9-1
+Added Pin To Net: NetName=NetLED3_A Pin=R9-2
+Added Pin To Net: NetName=LED4 Pin=R10-1
+Added Pin To Net: NetName=NetLED4_A Pin=R10-2
+Added Pin To Net: NetName=3.3v Pin=R11-2
+Added Pin To Net: NetName=RESET_KEY Pin=S2-2
+Change Net Name : Old Net Name=+5 New Net Name=5V
+Change Net Name : Old Net Name=3.3v New Net Name=3V3
+Added Pin To Net: NetName=CLK Pin=cc-3
+Added Pin To Net: NetName=CLK Pin=P6-03
+Added Net: Name=CLK
+Added Pin To Net: NetName=CS Pin=cc-4
+Added Pin To Net: NetName=CS Pin=P6-04
+Added Net: Name=CS
+Added Pin To Net: NetName=MISO Pin=cc-2
+Added Pin To Net: NetName=MISO Pin=P6-02
+Added Net: Name=MISO
+Added Pin To Net: NetName=MOSI Pin=cc-1
+Added Pin To Net: NetName=MOSI Pin=P6-01
+Added Net: Name=MOSI
+Added Pin To Net: NetName=NetC4_2 Pin=C4-2
+Added Pin To Net: NetName=NetC4_2 Pin=cc-16
+Added Pin To Net: NetName=NetC4_2 Pin=Prog-1
+Added Pin To Net: NetName=NetC4_2 Pin=R2-1
+Added Net: Name=NetC4_2
+Added Pin To Net: NetName=NetR3_2 Pin=R3-2
+Added Pin To Net: NetName=NetR3_2 Pin=S1-2
+Added Net: Name=NetR3_2
+Added Pin To Net: NetName=SCK Pin=cc-6
+Added Pin To Net: NetName=SCK Pin=P7-02
+Added Net: Name=SCK
+Added Pin To Net: NetName=SDA Pin=cc-5
+Added Pin To Net: NetName=SDA Pin=P7-01
+Added Net: Name=SDA
+Added Member To Class: ClassName=zigo_schem Member=Component C7 100 nf
+Added Member To Class: ClassName=zigo_schem Member=Component P3 Orangepi Serial
+Added Member To Class: ClassName=zigo_schem Member=Component P6 HTSW-104-07-G-S
+Added Member To Class: ClassName=zigo_schem Member=Component P7 HTSW-104-07-G-S
+Added Member To Class: ClassName=zigo_schem Member=Component R5 1K
+Added Member To Class: ClassName=zigo_schem Member=Component R6 1K
+Added Room: Name=zigo_schem

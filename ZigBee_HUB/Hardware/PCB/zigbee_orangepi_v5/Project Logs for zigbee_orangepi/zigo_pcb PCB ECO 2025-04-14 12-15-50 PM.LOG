@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=TX Pin=P5-02
+Removed Pin From Net: NetName=RX Pin=P5-03
+Removed Pin From Net: NetName=GND Pin=P5-04
+Add Pin To Net: Unknown Pin: Pin cc-29
+Added Pin To Net: NetName=GND Pin=P5-02
+Added Pin To Net: NetName=TX Pin=P5-03
+Added Pin To Net: NetName=RX Pin=P5-04
+Added Room: Name=zigo_schem

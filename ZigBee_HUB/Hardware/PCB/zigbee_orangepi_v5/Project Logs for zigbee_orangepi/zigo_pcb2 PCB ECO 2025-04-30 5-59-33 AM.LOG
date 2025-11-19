@@ -1,0 +1,5 @@
+Added Component: Designator=bridge(Solder Bridge4)
+Added Pin To Net: NetName=VBUS Pin=bridge-1
+Added Pin To Net: NetName=Netbridge_2 Pin=bridge-2
+Add Pin To Net: Unknown Pin: Pin cc-29
+Added Member To Class: ClassName=zigo_schem Member=Component bridge Solder Bridge3

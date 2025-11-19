@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=TX Pin=P5-03
+Removed Pin From Net: NetName=RX Pin=P5-04
+Added Pin To Net: NetName=RX Pin=P5-03
+Added Pin To Net: NetName=TX Pin=P5-04
+Added Member To Class: ClassName=zigo_schem Member=Component P5 HTSW-104-07-G-S
+Added Room: Name=zigo_schem

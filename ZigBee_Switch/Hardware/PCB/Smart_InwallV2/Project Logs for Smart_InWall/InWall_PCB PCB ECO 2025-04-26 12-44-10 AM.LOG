@@ -1,0 +1,38 @@
+Added Component: Designator=C5(Cap electrolitic radial 8x11.5-3.5)
+Add component (AddParameter): Name = "Data"; Value = "16-12-2016"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Designer"; Value = "Abbas Basereh"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Link"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part. No"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VALUE"; Value = "1uF"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found WCAP-ASLI_8x10.5
+Add Component: Footprint Not Found SODFL2512X100N
+Add Component: Footprint Not Found SODFL3718X102N
+Add Component: Footprint Not Found DIOM5226X240N
+Add Component: Footprint Not Found INDM125125X800N
+Add Component: Footprint Not Found SMD_805_Res
+Add Component: Footprint Not Found SMD_805_Res
+Added Pin To Net: NetName=Drain Pin=C5-1
+Added Pin To Net: NetName=GND Pin=C5-2
+Add Pin To Net: Unknown Pin: Pin C8-1
+Add Pin To Net: Unknown Pin: Pin C8-2
+Add Pin To Net: Unknown Pin: Pin D1-A
+Add Pin To Net: Unknown Pin: Pin D1-C
+Add Pin To Net: Unknown Pin: Pin D6-A
+Add Pin To Net: Unknown Pin: Pin D6-C
+Add Pin To Net: Unknown Pin: Pin D7-A
+Add Pin To Net: Unknown Pin: Pin D7-C
+Add Pin To Net: Unknown Pin: Pin L1-1
+Add Pin To Net: Unknown Pin: Pin L1-2
+Add Pin To Net: Unknown Pin: Pin R7-1
+Add Pin To Net: Unknown Pin: Pin R7-2
+Add Pin To Net: Unknown Pin: Pin R8-1
+Add Pin To Net: Unknown Pin: Pin R8-2
+Added Member To Class: ClassName=InWall_Schem Member=Component C5 2.2uF 450V
+Add Class Member: Failed to add class member : Component C8 865080153014
+Add Class Member: Failed to add class member : Component D1 1N4148WS
+Add Class Member: Failed to add class member : Component D6 ES1JLW
+Add Class Member: Failed to add class member : Component D7 US1A-13-F
+Add Class Member: Failed to add class member : Component L1 DR127-470uH
+Add Class Member: Failed to add class member : Component R7 Res1
+Add Class Member: Failed to add class member : Component R8 1000

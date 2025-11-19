@@ -1,0 +1,3 @@
+Change Component Designator: OldDesignator=Solder Bridge NewDesignator=*
+Add Pin To Net: Unknown Pin: Pin cc-29
+Added Room: Name=zigo_schem

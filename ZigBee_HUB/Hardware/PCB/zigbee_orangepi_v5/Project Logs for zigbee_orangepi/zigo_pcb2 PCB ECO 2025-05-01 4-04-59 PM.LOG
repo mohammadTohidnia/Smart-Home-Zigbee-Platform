@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=GND Pin=P3-3
+Removed Pin From Net: NetName=3.3v Pin=P3-4
+Removed Pin From Net: NetName=RESET Pin=P3-7
+Removed Member From Class: ClassName=zigo_schem Member=P3
+Add Pin To Net: Unknown Pin: Pin cc-29
+Added Room: Name=zigo_schem

@@ -1,0 +1,5 @@
+Board type: CC2652P7/CC1352P7
+Device type: Router
+ Transmit enable (TXEN): P28, Enable high PA: P29
+Serial bootloader (SBL): P15
+Status LED: P06, Joining or errors

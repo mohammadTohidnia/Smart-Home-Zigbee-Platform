@@ -1,0 +1,11 @@
+Board type: CC2652P7/CC1352P7
+Device type: End device without routing
+ Transmit enable (TXEN): P28, Enable high PA: P29
+Serial bootloader (SBL): P15
+Status LED: P06, Periodic (every 5 seconds)
+
+Output pins:
+P07: Output 1, GPIO, External pull-down (Role: Generic), Remember state
+
+Input pins:
+P05: Input 1, GPIO, External pull-down, Switch, Link to out 1 (Bind command: Toggle)

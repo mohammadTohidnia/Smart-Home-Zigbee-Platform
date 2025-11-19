@@ -1,0 +1,45 @@
+Change Component Designator: OldDesignator=U1 NewDesignator=cc
+Change Component Description : Designator=LED1 Old Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package New Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package | Optek (TT Electronics) OVLAW4CB7
+Change Component Description : Designator=LED2 Old Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package New Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package | Optek (TT Electronics) OVLAW4CB7
+Change Component Description : Designator=LED3 Old Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package New Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package | Optek (TT Electronics) OVLAW4CB7
+Change Component Description : Designator=LED4 Old Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package New Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package | Optek (TT Electronics) OVLAW4CB7
+Change Component Description : Designator=LED5 Old Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package New Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package | Optek (TT Electronics) OVLAW4CB7
+Added Component: Designator=C5(CAPC3216X110N)
+Add component (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/C1206C106K3PACTU/KEMET/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "KEMET"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "C1206C106K3PACTU"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "1206 KEMET"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/C1206C106K3PACTU/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/C1206C106K3PACTU/KEMET/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C6(CAPC3216X110N)
+Add component (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/C1206C106K3PACTU/KEMET/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "KEMET"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "C1206C106K3PACTU"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "1206 KEMET"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/C1206C106K3PACTU/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/C1206C106K3PACTU/KEMET/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=U2(SOT229P700X180-4N)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/AMS1117-3.3/Advanced+Monolithic+Systems/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Advanced Monolithic Systems"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "AMS1117-3.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "SOT-223 Seeed Technology"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/AMS1117-3.3/Advanced+Monolithic+Systems/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=3.3v Pin=C5-1
+Added Pin To Net: NetName=GND Pin=C5-2
+Added Pin To Net: NetName=Input_OP Pin=C6-1
+Added Pin To Net: NetName=GND Pin=C6-2
+Add Pin To Net: Unknown Pin: Pin cc-29
+Added Pin To Net: NetName=GND Pin=U2-1
+Added Pin To Net: NetName=3.3v Pin=U2-2
+Added Pin To Net: NetName=Input_OP Pin=U2-3
+Added Member To Class: ClassName=zigo_schem Member=Component C5 C1206C106K3PACTU
+Added Member To Class: ClassName=zigo_schem Member=Component C6 C1206C106K3PACTU
+Added Member To Class: ClassName=zigo_schem Member=Component U2 AMS1117-3.3
+Added Room: Name=zigo_schem

@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=3V3 Pin=P7-03
+Removed Pin From Net: NetName=GND Pin=P7-04
+Added Pin To Net: NetName=GND Pin=P7-03
+Added Pin To Net: NetName=3V3 Pin=P7-04
+Added Room: Name=zigo_schem

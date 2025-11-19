@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=VBUS Pin=*-1
+Removed Member From Class: ClassName=zigo_schem Member=*
+Add Component: Footprint Not Found Solder Bridge
+Add Pin To Net: Unknown Pin: Pin bridge-1
+Add Pin To Net: Unknown Pin: Pin cc-29
+Added Pin To Net: NetName=Netbridge_2 Pin=D1-C
+Added Pin To Net: NetName=Netbridge_2 Pin=RT1-1
+Added Net: Name=Netbridge_2
+Add Class Member: Failed to add class member : Component bridge Solder Bridge3
+Added Room: Name=zigo_schem

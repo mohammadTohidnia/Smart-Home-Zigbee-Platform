@@ -1,0 +1,20 @@
+Change Component Designator: OldDesignator=P NewDesignator=P3
+Change Component Description : Designator=LED1 Old Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package New Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package | Optek (TT Electronics) OVLAW4CB7
+Change Component Description : Designator=LED2 Old Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package New Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package | Optek (TT Electronics) OVLAW4CB7
+Change Component Description : Designator=LED3 Old Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package New Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package | Optek (TT Electronics) OVLAW4CB7
+Change Component Description : Designator=LED4 Old Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package New Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package | Optek (TT Electronics) OVLAW4CB7
+Change Component Description : Designator=LED5 Old Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package New Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package | Optek (TT Electronics) OVLAW4CB7
+Added Component: Designator=P5(SAMTEC_HTSW-104-07-G-S)
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "HTSW-104-07-G-S"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Add Pin To Net: Unknown Pin: Pin cc-29
+Added Pin To Net: NetName=3.3v Pin=P5-01
+Added Pin To Net: NetName=TX Pin=P5-02
+Added Pin To Net: NetName=RX Pin=P5-03
+Added Pin To Net: NetName=GND Pin=P5-04
+Added Member To Class: ClassName=zigo_schem Member=Component P5 HTSW-104-07-G-S
+Added Room: Name=zigo_schem

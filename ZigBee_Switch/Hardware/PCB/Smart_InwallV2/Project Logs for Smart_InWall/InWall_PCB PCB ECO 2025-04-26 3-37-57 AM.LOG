@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=Phase Pin=F1-1
+Removed Pin From Net: NetName=NetD2_A Pin=F1-2
+Added Component: Designator=F1(FUSRR508W60L835T400H810)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/0697H1000-02/Bel+Circuit+Protection/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Bel Fuse"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "0697H1000-02"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "Radial Box  Bel Fuse"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/0697H1000-02/Bel+Circuit+Protection/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=Phase Pin=F1-1
+Added Pin To Net: NetName=NetD2_A Pin=F1-2

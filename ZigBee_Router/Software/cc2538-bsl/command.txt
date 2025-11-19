@@ -1,0 +1,1 @@
+python cc2538-bsl.py -p COM7 -evw "file_name".hex

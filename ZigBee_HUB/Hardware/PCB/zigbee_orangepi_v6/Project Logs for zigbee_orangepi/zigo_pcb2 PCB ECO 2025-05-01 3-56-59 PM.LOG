@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=Input_OP Pin=P1-2
+Removed Pin From Net: NetName=Input_OP Pin=P1-4
+Change Component Description : Designator=LED1 Old Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package New Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package | Optek (TT Electronics) OVLAW4CB7
+Change Component Description : Designator=LED2 Old Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package New Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package | Optek (TT Electronics) OVLAW4CB7
+Change Component Description : Designator=LED3 Old Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package New Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package | Optek (TT Electronics) OVLAW4CB7
+Change Component Description : Designator=LED4 Old Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package New Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package | Optek (TT Electronics) OVLAW4CB7
+Change Component Description : Designator=LED5 Old Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package New Description=Ovlaw4Cb7 White LED 3mm (T-1) Round Lens Through Hole Package | Optek (TT Electronics) OVLAW4CB7
+Add Pin To Net: Unknown Pin: Pin cc-29
+Change Net Name : Old Net Name=Netbridge_2 New Net Name=NetD1_C
+Added Room: Name=zigo_schem

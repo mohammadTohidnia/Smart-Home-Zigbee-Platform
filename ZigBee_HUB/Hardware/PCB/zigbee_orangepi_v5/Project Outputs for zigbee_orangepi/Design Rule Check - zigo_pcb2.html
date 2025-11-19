@@ -1,0 +1,773 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://E:\altium_Documents\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2025-04-30</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">4:49:13 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:02</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc" class="file"><acronym title="D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc">D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">143</td></tr>
+</table>
+</td>
+</table><a name="IDO5MMUNE51HCWEF2WV0L45UGB5C2GDFC3HTCNNVINF51YMNXM2JUH"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHQNK5IISJAZ1HBYRMSZM51IH2PWK1MH0SX0ITNPC4DRUUAKGO4VG">Clearance Constraint (Gap=0.127mm) (HasFootprint('VALCON_CSP-USC16-TR')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDHFQJFE04HOJHPT4K42X2C4SVLDJG3MBHJVWZMYHVNWYPPLCTAAHK">Clearance Constraint (Gap=0.3mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDTPHW1PWSNIVJCQHFYYZH4EIV0HCRKI3KDUYXZJLFFJJNSJJMWHGM">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIO3DUTL1QQXZGXLDZ0KUYWYWDBJZSQDEZVADEPDLGCLOB05JLH1D">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZ5AZMKGF3XLAOEYAP24FHZG2NIAAW3BSWC0E1QODY0MGA03ODZ2N">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKRDXZCCGSA0KJOVGWYFT1WJ2PJ1Z2YY3ZRMXL2CTI0XFPOYZBGLC">Width Constraint (Min=0.3mm) (Max=2mm) (Preferred=0.5mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYDUL0C5WPAMMD4HBRFSWH00MGMIUZYYGN32ONLEN4UWTNUFHTRGP">Width Constraint (Min=0.254mm) (Max=1mm) (Preferred=0.5mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKI5VAWDDZ4L4IKKTUY3QUQFOIBKXQ0VXDKYAMPFW1NF4LFH42WGD">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID4M5BXBR1TV3WL4T5I4NB30YDTEFE5RBTUACFJEUABGBUUWKCFH">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">16</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQ3H1PAPLPHS3LOLWMZC4DID5NBOPFINIW2OT0QPPYYNW2ZVLR3QB">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDPS0D0C3CBVFWF1QHTBKU3JFGXNB1FXBZYAL4JBDMT4AWY55KUD0C">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDTTAMDANXPJUAO1MHUPJA2DUGPNET4E5ZTND1WRERUSZ01WHXX3ND">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">121</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDB32QSXARU2XVHJW2LGIMWYEZCJVI4I3UOCTNURIPMJEKZ51ZWYAE">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDXZSHRSZI5BPGBTXGFC2PYGQH3EY1I1543NYUDLHNQ2ZA4U3G4LZL">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYSAX1GNV4QEPEG2XBV5EFW130FDQKIG32X2AHGLDSWXXT0ZFD2KN">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">143</td>
+</tr>
+</table><br><a name="ID4M5BXBR1TV3WL4T5I4NB30YDTEFE5RBTUACFJEUABGBUUWKCFH"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5264.729mil|Location2.X=5407.712mil|Location1.Y=2552.525mil|Location2.Y=2695.507mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5264.729mil|Location2.X=5407.712mil|Location1.Y=2552.525mil|Location2.Y=2695.507mil|Absolute=True">Hole Size Constraint: (3.6mm &gt; 2.54mm) Pad DC-1(134.95mm,66.15mm) on Multi-Layer Actual Slot Hole Width = 3.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5024.572mil|Location2.X=5151.806mil|Location1.Y=2560.399mil|Location2.Y=2687.633mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5024.572mil|Location2.X=5151.806mil|Location1.Y=2560.399mil|Location2.Y=2687.633mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad DC-2(128.65mm,66.15mm) on Multi-Layer Actual Slot Hole Width = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5158.43mil|Location2.X=5285.664mil|Location1.Y=2371.422mil|Location2.Y=2498.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5158.43mil|Location2.X=5285.664mil|Location1.Y=2371.422mil|Location2.Y=2498.656mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad DC-3(132.05mm,61.35mm) on Multi-Layer Actual Slot Hole Width = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5290.32mil|Location2.X=5449.05mil|Location1.Y=4460.005mil|Location2.Y=4618.735mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5290.32mil|Location2.X=5449.05mil|Location1.Y=4460.005mil|Location2.Y=4618.735mil|Absolute=True">Hole Size Constraint: (3mm &gt; 2.54mm) Pad Free-1(135.8mm,114.8mm) on Multi-Layer Actual Slot Hole Height = 3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5290.32mil|Location2.X=5449.05mil|Location1.Y=4460.005mil|Location2.Y=4618.735mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5290.32mil|Location2.X=5449.05mil|Location1.Y=4460.005mil|Location2.Y=4618.735mil|Absolute=True">Hole Size Constraint: (4mm &gt; 2.54mm) Pad Free-1(135.8mm,114.8mm) on Multi-Layer Actual Slot Hole Width = 4mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5485.202mil|Location2.X=5604.562mil|Location1.Y=1734.611mil|Location2.Y=1853.971mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5485.202mil|Location2.X=5604.562mil|Location1.Y=1734.611mil|Location2.Y=1853.971mil|Absolute=True">Hole Size Constraint: (3mm &gt; 2.54mm) Pad Free-1(140.25mm,45.075mm) on Multi-Layer Actual Hole Size = 3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7450.753mil|Location2.X=7570.113mil|Location1.Y=1738.548mil|Location2.Y=1857.908mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7450.753mil|Location2.X=7570.113mil|Location1.Y=1738.548mil|Location2.Y=1857.908mil|Absolute=True">Hole Size Constraint: (3mm &gt; 2.54mm) Pad Free-1(190.175mm,45.175mm) on Multi-Layer Actual Hole Size = 3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7597.407mil|Location2.X=7756.137mil|Location1.Y=4460.005mil|Location2.Y=4618.735mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7597.407mil|Location2.X=7756.137mil|Location1.Y=4460.005mil|Location2.Y=4618.735mil|Absolute=True">Hole Size Constraint: (3mm &gt; 2.54mm) Pad Free-1(194.4mm,114.8mm) on Multi-Layer Actual Slot Hole Height = 3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7597.407mil|Location2.X=7756.137mil|Location1.Y=4460.005mil|Location2.Y=4618.735mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7597.407mil|Location2.X=7756.137mil|Location1.Y=4460.005mil|Location2.Y=4618.735mil|Absolute=True">Hole Size Constraint: (4mm &gt; 2.54mm) Pad Free-1(194.4mm,114.8mm) on Multi-Layer Actual Slot Hole Width = 4mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7607.249mil|Location2.X=7746.294mil|Location1.Y=2162.761mil|Location2.Y=2301.806mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7607.249mil|Location2.X=7746.294mil|Location1.Y=2162.761mil|Location2.Y=2301.806mil|Absolute=True">Hole Size Constraint: (3.5mm &gt; 2.54mm) Pad Free-1(194.4mm,56.2mm) on Multi-Layer Actual Slot Hole Width = 3.5mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7607.249mil|Location2.X=7746.294mil|Location1.Y=2162.761mil|Location2.Y=2301.806mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7607.249mil|Location2.X=7746.294mil|Location1.Y=2162.761mil|Location2.Y=2301.806mil|Absolute=True">Hole Size Constraint: (3mm &gt; 2.54mm) Pad Free-1(194.4mm,56.2mm) on Multi-Layer Actual Slot Hole Height = 3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5485.202mil|Location2.X=5604.562mil|Location1.Y=3512.17mil|Location2.Y=3631.53mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5485.202mil|Location2.X=5604.562mil|Location1.Y=3512.17mil|Location2.Y=3631.53mil|Absolute=True">Hole Size Constraint: (3mm &gt; 2.54mm) Pad Free-3(140.25mm,90.225mm) on Multi-Layer Actual Hole Size = 3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7445.832mil|Location2.X=7565.192mil|Location1.Y=3514.139mil|Location2.Y=3633.499mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7445.832mil|Location2.X=7565.192mil|Location1.Y=3514.139mil|Location2.Y=3633.499mil|Absolute=True">Hole Size Constraint: (3mm &gt; 2.54mm) Pad Free-4(190.05mm,90.275mm) on Multi-Layer Actual Hole Size = 3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5300.162mil|Location2.X=5439.208mil|Location1.Y=2162.761mil|Location2.Y=2301.806mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5300.162mil|Location2.X=5439.208mil|Location1.Y=2162.761mil|Location2.Y=2301.806mil|Absolute=True">Hole Size Constraint: (3.5mm &gt; 2.54mm) Pad Free-5(135.8mm,56.2mm) on Multi-Layer Actual Slot Hole Width = 3.5mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5300.162mil|Location2.X=5439.208mil|Location1.Y=2162.761mil|Location2.Y=2301.806mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5300.162mil|Location2.X=5439.208mil|Location1.Y=2162.761mil|Location2.Y=2301.806mil|Absolute=True">Hole Size Constraint: (3mm &gt; 2.54mm) Pad Free-5(135.8mm,56.2mm) on Multi-Layer Actual Slot Hole Height = 3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5609.217mil|Location2.X=5925.428mil|Location1.Y=4271.029mil|Location2.Y=4587.239mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5609.217mil|Location2.X=5925.428mil|Location1.Y=4271.029mil|Location2.Y=4587.239mil|Absolute=True">Hole Size Constraint: (8mm &gt; 2.54mm) Pad Free-6(145.9mm,112mm) on Multi-Layer Actual Hole Size = 8mm</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDTTAMDANXPJUAO1MHUPJA2DUGPNET4E5ZTND1WRERUSZ01WHXX3ND"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7944.977mil|Location2.X=7956.227mil|Location1.Y=2628.44mil|Location2.Y=2639.69mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7944.977mil|Location2.X=7956.227mil|Location1.Y=2628.44mil|Location2.Y=2639.69mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.003mm &lt; 0.254mm) Between Arc (202.695mm,65.845mm) on Top Overlay And Pad LED1-A(201.43mm,65.8mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.003mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8050.256mil|Location2.X=8061.506mil|Location1.Y=2628.389mil|Location2.Y=2639.639mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8050.256mil|Location2.X=8061.506mil|Location1.Y=2628.389mil|Location2.Y=2639.639mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.006mm &lt; 0.254mm) Between Arc (202.695mm,65.845mm) on Top Overlay And Pad LED1-C(203.97mm,65.8mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.006mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7944.977mil|Location2.X=7956.227mil|Location1.Y=2904.031mil|Location2.Y=2915.281mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7944.977mil|Location2.X=7956.227mil|Location1.Y=2904.031mil|Location2.Y=2915.281mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.003mm &lt; 0.254mm) Between Arc (202.695mm,72.845mm) on Top Overlay And Pad LED2-A(201.43mm,72.8mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.003mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8050.256mil|Location2.X=8061.506mil|Location1.Y=2903.979mil|Location2.Y=2915.229mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8050.256mil|Location2.X=8061.506mil|Location1.Y=2903.979mil|Location2.Y=2915.229mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.006mm &lt; 0.254mm) Between Arc (202.695mm,72.845mm) on Top Overlay And Pad LED2-C(203.97mm,72.8mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.006mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7944.977mil|Location2.X=7956.227mil|Location1.Y=3199.306mil|Location2.Y=3210.556mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7944.977mil|Location2.X=7956.227mil|Location1.Y=3199.306mil|Location2.Y=3210.556mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.003mm &lt; 0.254mm) Between Arc (202.695mm,80.345mm) on Top Overlay And Pad LED3-A(201.43mm,80.3mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.003mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8050.256mil|Location2.X=8061.506mil|Location1.Y=3199.255mil|Location2.Y=3210.505mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8050.256mil|Location2.X=8061.506mil|Location1.Y=3199.255mil|Location2.Y=3210.505mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.006mm &lt; 0.254mm) Between Arc (202.695mm,80.345mm) on Top Overlay And Pad LED3-C(203.97mm,80.3mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.006mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7944.977mil|Location2.X=7956.227mil|Location1.Y=3486.708mil|Location2.Y=3497.958mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7944.977mil|Location2.X=7956.227mil|Location1.Y=3486.708mil|Location2.Y=3497.958mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.003mm &lt; 0.254mm) Between Arc (202.695mm,87.645mm) on Top Overlay And Pad LED4-A(201.43mm,87.6mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.003mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8050.256mil|Location2.X=8061.506mil|Location1.Y=3486.656mil|Location2.Y=3497.906mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8050.256mil|Location2.X=8061.506mil|Location1.Y=3486.656mil|Location2.Y=3497.906mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.006mm &lt; 0.254mm) Between Arc (202.695mm,87.645mm) on Top Overlay And Pad LED4-C(203.97mm,87.6mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.006mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7944.977mil|Location2.X=7956.227mil|Location1.Y=3805.606mil|Location2.Y=3816.856mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7944.977mil|Location2.X=7956.227mil|Location1.Y=3805.606mil|Location2.Y=3816.856mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.003mm &lt; 0.254mm) Between Arc (202.695mm,95.745mm) on Top Overlay And Pad LED5-A(201.43mm,95.7mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.003mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8050.256mil|Location2.X=8061.506mil|Location1.Y=3805.554mil|Location2.Y=3816.804mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8050.256mil|Location2.X=8061.506mil|Location1.Y=3805.554mil|Location2.Y=3816.804mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.006mm &lt; 0.254mm) Between Arc (202.695mm,95.745mm) on Top Overlay And Pad LED5-C(203.97mm,95.7mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.006mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7946.132mil|Location2.X=7957.382mil|Location1.Y=2580.388mil|Location2.Y=2591.638mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7946.132mil|Location2.X=7957.382mil|Location1.Y=2580.388mil|Location2.Y=2591.638mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.023mm &lt; 0.254mm) Between Arc (202.725mm,65.735mm) on Top Overlay And Pad LED1-A(201.43mm,65.8mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.023mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8051.185mil|Location2.X=8062.435mil|Location1.Y=2580.479mil|Location2.Y=2591.729mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8051.185mil|Location2.X=8062.435mil|Location1.Y=2580.479mil|Location2.Y=2591.729mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.029mm &lt; 0.254mm) Between Arc (202.725mm,65.735mm) on Top Overlay And Pad LED1-C(203.97mm,65.8mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.029mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7946.132mil|Location2.X=7957.382mil|Location1.Y=2855.979mil|Location2.Y=2867.229mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7946.132mil|Location2.X=7957.382mil|Location1.Y=2855.979mil|Location2.Y=2867.229mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.023mm &lt; 0.254mm) Between Arc (202.725mm,72.735mm) on Top Overlay And Pad LED2-A(201.43mm,72.8mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.023mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8051.185mil|Location2.X=8062.435mil|Location1.Y=2856.07mil|Location2.Y=2867.32mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8051.185mil|Location2.X=8062.435mil|Location1.Y=2856.07mil|Location2.Y=2867.32mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.029mm &lt; 0.254mm) Between Arc (202.725mm,72.735mm) on Top Overlay And Pad LED2-C(203.97mm,72.8mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.029mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7946.132mil|Location2.X=7957.382mil|Location1.Y=3151.255mil|Location2.Y=3162.505mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7946.132mil|Location2.X=7957.382mil|Location1.Y=3151.255mil|Location2.Y=3162.505mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.023mm &lt; 0.254mm) Between Arc (202.725mm,80.235mm) on Top Overlay And Pad LED3-A(201.43mm,80.3mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.023mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8051.185mil|Location2.X=8062.435mil|Location1.Y=3151.345mil|Location2.Y=3162.595mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8051.185mil|Location2.X=8062.435mil|Location1.Y=3151.345mil|Location2.Y=3162.595mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.029mm &lt; 0.254mm) Between Arc (202.725mm,80.235mm) on Top Overlay And Pad LED3-C(203.97mm,80.3mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.029mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7946.132mil|Location2.X=7957.382mil|Location1.Y=3438.656mil|Location2.Y=3449.906mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7946.132mil|Location2.X=7957.382mil|Location1.Y=3438.656mil|Location2.Y=3449.906mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.023mm &lt; 0.254mm) Between Arc (202.725mm,87.535mm) on Top Overlay And Pad LED4-A(201.43mm,87.6mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.023mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8051.185mil|Location2.X=8062.435mil|Location1.Y=3438.747mil|Location2.Y=3449.997mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8051.185mil|Location2.X=8062.435mil|Location1.Y=3438.747mil|Location2.Y=3449.997mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.029mm &lt; 0.254mm) Between Arc (202.725mm,87.535mm) on Top Overlay And Pad LED4-C(203.97mm,87.6mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.029mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7946.132mil|Location2.X=7957.382mil|Location1.Y=3757.554mil|Location2.Y=3768.804mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7946.132mil|Location2.X=7957.382mil|Location1.Y=3757.554mil|Location2.Y=3768.804mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.023mm &lt; 0.254mm) Between Arc (202.725mm,95.635mm) on Top Overlay And Pad LED5-A(201.43mm,95.7mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.023mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8051.185mil|Location2.X=8062.435mil|Location1.Y=3757.644mil|Location2.Y=3768.894mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8051.185mil|Location2.X=8062.435mil|Location1.Y=3757.644mil|Location2.Y=3768.894mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.029mm &lt; 0.254mm) Between Arc (202.725mm,95.635mm) on Top Overlay And Pad LED5-C(203.97mm,95.7mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.029mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7400.462mil|Location2.X=7411.712mil|Location1.Y=3879.159mil|Location2.Y=3890.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7400.462mil|Location2.X=7411.712mil|Location1.Y=3879.159mil|Location2.Y=3890.409mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.203mm &lt; 0.254mm) Between Pad C1-1(188.3mm,99.025mm) on Bottom Layer And Track (187.525mm,97.972mm)(187.525mm,96.972mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.203mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7459.516mil|Location2.X=7470.766mil|Location1.Y=3879.159mil|Location2.Y=3890.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7459.516mil|Location2.X=7470.766mil|Location1.Y=3879.159mil|Location2.Y=3890.409mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.203mm &lt; 0.254mm) Between Pad C1-1(188.3mm,99.025mm) on Bottom Layer And Track (189.025mm,96.972mm)(189.025mm,97.972mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.203mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7400.462mil|Location2.X=7411.712mil|Location1.Y=3825.025mil|Location2.Y=3836.275mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7400.462mil|Location2.X=7411.712mil|Location1.Y=3825.025mil|Location2.Y=3836.275mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.147mm &lt; 0.254mm) Between Pad C1-2(188.3mm,95.975mm) on Bottom Layer And Track (187.525mm,97.972mm)(187.525mm,96.972mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.147mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7459.516mil|Location2.X=7470.766mil|Location1.Y=3825.025mil|Location2.Y=3836.275mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7459.516mil|Location2.X=7470.766mil|Location1.Y=3825.025mil|Location2.Y=3836.275mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.147mm &lt; 0.254mm) Between Pad C1-2(188.3mm,95.975mm) on Bottom Layer And Track (189.025mm,96.972mm)(189.025mm,97.972mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.147mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7494.95mil|Location2.X=7506.2mil|Location1.Y=3879.159mil|Location2.Y=3890.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7494.95mil|Location2.X=7506.2mil|Location1.Y=3879.159mil|Location2.Y=3890.409mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.203mm &lt; 0.254mm) Between Pad C2-1(190.7mm,99.025mm) on Bottom Layer And Track (189.925mm,97.972mm)(189.925mm,96.972mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.203mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7554.004mil|Location2.X=7565.254mil|Location1.Y=3879.159mil|Location2.Y=3890.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7554.004mil|Location2.X=7565.254mil|Location1.Y=3879.159mil|Location2.Y=3890.409mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.203mm &lt; 0.254mm) Between Pad C2-1(190.7mm,99.025mm) on Bottom Layer And Track (191.425mm,96.972mm)(191.425mm,97.972mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.203mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7494.95mil|Location2.X=7506.2mil|Location1.Y=3825.025mil|Location2.Y=3836.275mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7494.95mil|Location2.X=7506.2mil|Location1.Y=3825.025mil|Location2.Y=3836.275mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.147mm &lt; 0.254mm) Between Pad C2-2(190.7mm,95.975mm) on Bottom Layer And Track (189.925mm,97.972mm)(189.925mm,96.972mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.147mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7554.004mil|Location2.X=7565.254mil|Location1.Y=3825.025mil|Location2.Y=3836.275mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7554.004mil|Location2.X=7565.254mil|Location1.Y=3825.025mil|Location2.Y=3836.275mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.147mm &lt; 0.254mm) Between Pad C2-2(190.7mm,95.975mm) on Bottom Layer And Track (191.425mm,96.972mm)(191.425mm,97.972mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.147mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7756.793mil|Location2.X=7768.043mil|Location1.Y=4133.213mil|Location2.Y=4144.463mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7756.793mil|Location2.X=7768.043mil|Location1.Y=4133.213mil|Location2.Y=4144.463mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.203mm &lt; 0.254mm) Between Pad C3-1(197.3mm,103.775mm) on Bottom Layer And Track (196.575mm,104.828mm)(196.575mm,105.828mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.203mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7815.847mil|Location2.X=7827.097mil|Location1.Y=4133.213mil|Location2.Y=4144.463mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7815.847mil|Location2.X=7827.097mil|Location1.Y=4133.213mil|Location2.Y=4144.463mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.203mm &lt; 0.254mm) Between Pad C3-1(197.3mm,103.775mm) on Bottom Layer And Track (198.075mm,105.828mm)(198.075mm,104.828mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.203mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7756.793mil|Location2.X=7768.043mil|Location1.Y=4187.347mil|Location2.Y=4198.597mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7756.793mil|Location2.X=7768.043mil|Location1.Y=4187.347mil|Location2.Y=4198.597mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.147mm &lt; 0.254mm) Between Pad C3-2(197.3mm,106.825mm) on Bottom Layer And Track (196.575mm,104.828mm)(196.575mm,105.828mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.147mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7815.847mil|Location2.X=7827.097mil|Location1.Y=4187.347mil|Location2.Y=4198.597mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7815.847mil|Location2.X=7827.097mil|Location1.Y=4187.347mil|Location2.Y=4198.597mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.147mm &lt; 0.254mm) Between Pad C3-2(197.3mm,106.825mm) on Bottom Layer And Track (198.075mm,105.828mm)(198.075mm,104.828mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.147mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4940.848mil|Location2.X=4952.098mil|Location1.Y=3159.788mil|Location2.Y=3171.038mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4940.848mil|Location2.X=4952.098mil|Location1.Y=3159.788mil|Location2.Y=3171.038mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.203mm &lt; 0.254mm) Between Pad C4-1(125.775mm,79.05mm) on Bottom Layer And Track (125.05mm,80.103mm)(125.05mm,81.103mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.203mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4999.902mil|Location2.X=5011.152mil|Location1.Y=3159.788mil|Location2.Y=3171.038mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4999.902mil|Location2.X=5011.152mil|Location1.Y=3159.788mil|Location2.Y=3171.038mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.203mm &lt; 0.254mm) Between Pad C4-1(125.775mm,79.05mm) on Bottom Layer And Track (126.55mm,81.103mm)(126.55mm,80.103mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.203mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5006.126mil|Location2.X=5017.376mil|Location1.Y=3255.202mil|Location2.Y=3266.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5006.126mil|Location2.X=5017.376mil|Location1.Y=3255.202mil|Location2.Y=3266.452mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.167mm &lt; 0.254mm) Between Pad C4-2(125.775mm,82.1mm) on Bottom Layer And Text "C4" (128.558mm,81.825mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.167mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4940.848mil|Location2.X=4952.098mil|Location1.Y=3213.922mil|Location2.Y=3225.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4940.848mil|Location2.X=4952.098mil|Location1.Y=3213.922mil|Location2.Y=3225.172mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.147mm &lt; 0.254mm) Between Pad C4-2(125.775mm,82.1mm) on Bottom Layer And Track (125.05mm,80.103mm)(125.05mm,81.103mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.147mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4999.902mil|Location2.X=5011.152mil|Location1.Y=3213.922mil|Location2.Y=3225.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4999.902mil|Location2.X=5011.152mil|Location1.Y=3213.922mil|Location2.Y=3225.172mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.147mm &lt; 0.254mm) Between Pad C4-2(125.775mm,82.1mm) on Bottom Layer And Track (126.55mm,81.103mm)(126.55mm,80.103mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.147mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5356.009mil|Location2.X=5363.676mil|Location1.Y=2523.726mil|Location2.Y=2531.392mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5356.009mil|Location2.X=5363.676mil|Location1.Y=2523.726mil|Location2.Y=2531.392mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad DC-1(134.95mm,66.15mm) on Multi-Layer And Track (135.55mm,61.65mm)(135.55mm,63.7mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5356.009mil|Location2.X=5363.676mil|Location1.Y=2716.639mil|Location2.Y=2724.306mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5356.009mil|Location2.X=5363.676mil|Location1.Y=2716.639mil|Location2.Y=2724.306mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad DC-1(134.95mm,66.15mm) on Multi-Layer And Track (135.55mm,68.6mm)(135.55mm,70.65mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5121.439mil|Location2.X=5129.105mil|Location1.Y=2443.017mil|Location2.Y=2450.684mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5121.439mil|Location2.X=5129.105mil|Location1.Y=2443.017mil|Location2.Y=2450.684mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad DC-3(132.05mm,61.35mm) on Multi-Layer And Track (121.25mm,61.65mm)(129.8mm,61.65mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5306.797mil|Location2.X=5314.463mil|Location1.Y=2443.017mil|Location2.Y=2450.684mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5306.797mil|Location2.X=5314.463mil|Location1.Y=2443.017mil|Location2.Y=2450.684mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad DC-3(132.05mm,61.35mm) on Multi-Layer And Track (134.3mm,61.65mm)(135.55mm,61.65mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7927.236mil|Location2.X=7934.903mil|Location1.Y=2581.228mil|Location2.Y=2588.894mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7927.236mil|Location2.X=7934.903mil|Location1.Y=2581.228mil|Location2.Y=2588.894mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad LED1-A(201.43mm,65.8mm) on Multi-Layer And Text "R1" (200.859mm,65.161mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7961.908mil|Location2.X=7969.575mil|Location1.Y=2858.06mil|Location2.Y=2865.726mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7961.908mil|Location2.X=7969.575mil|Location1.Y=2858.06mil|Location2.Y=2865.726mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad LED2-A(201.43mm,72.8mm) on Multi-Layer And Text "R2" (200.47mm,71.176mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7925.931mil|Location2.X=7933.597mil|Location1.Y=3482.847mil|Location2.Y=3490.513mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7925.931mil|Location2.X=7933.597mil|Location1.Y=3482.847mil|Location2.Y=3490.513mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad LED4-A(201.43mm,87.6mm) on Multi-Layer And Text "R4" (200.47mm,85.776mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.899mil|Location2.X=7589.149mil|Location1.Y=3330.989mil|Location2.Y=3342.239mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.899mil|Location2.X=7589.149mil|Location1.Y=3330.989mil|Location2.Y=3342.239mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.083mm &lt; 0.254mm) Between Pad P1-1(191.24mm,85mm) on Multi-Layer And Track (192.2mm,43.2mm)(192.2mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.083mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2860.517mil|Location2.Y=2871.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2860.517mil|Location2.Y=2871.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.083mm &lt; 0.254mm) Between Pad P1-11(191.24mm,72.3mm) on Multi-Layer And Track (192.2mm,43.2mm)(192.2mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.083mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2760.517mil|Location2.Y=2771.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2760.517mil|Location2.Y=2771.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.083mm &lt; 0.254mm) Between Pad P1-13(191.24mm,69.76mm) on Multi-Layer And Track (192.2mm,43.2mm)(192.2mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.083mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2660.517mil|Location2.Y=2671.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2660.517mil|Location2.Y=2671.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.083mm &lt; 0.254mm) Between Pad P1-15(191.24mm,67.22mm) on Multi-Layer And Track (192.2mm,43.2mm)(192.2mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.083mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2560.517mil|Location2.Y=2571.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2560.517mil|Location2.Y=2571.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.083mm &lt; 0.254mm) Between Pad P1-17(191.24mm,64.68mm) on Multi-Layer And Track (192.2mm,43.2mm)(192.2mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.083mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2460.517mil|Location2.Y=2471.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2460.517mil|Location2.Y=2471.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.083mm &lt; 0.254mm) Between Pad P1-19(191.24mm,62.14mm) on Multi-Layer And Track (192.2mm,43.2mm)(192.2mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.083mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2360.517mil|Location2.Y=2371.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2360.517mil|Location2.Y=2371.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.083mm &lt; 0.254mm) Between Pad P1-21(191.24mm,59.6mm) on Multi-Layer And Track (192.2mm,43.2mm)(192.2mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.083mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2260.517mil|Location2.Y=2271.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2260.517mil|Location2.Y=2271.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.083mm &lt; 0.254mm) Between Pad P1-23(191.24mm,57.06mm) on Multi-Layer And Track (192.2mm,43.2mm)(192.2mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.083mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2160.517mil|Location2.Y=2171.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2160.517mil|Location2.Y=2171.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.083mm &lt; 0.254mm) Between Pad P1-25(191.24mm,54.52mm) on Multi-Layer And Track (192.2mm,43.2mm)(192.2mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.083mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=3260.517mil|Location2.Y=3271.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=3260.517mil|Location2.Y=3271.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.083mm &lt; 0.254mm) Between Pad P1-3(191.24mm,82.46mm) on Multi-Layer And Track (192.2mm,43.2mm)(192.2mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.083mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=3160.517mil|Location2.Y=3171.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=3160.517mil|Location2.Y=3171.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.083mm &lt; 0.254mm) Between Pad P1-5(191.24mm,79.92mm) on Multi-Layer And Track (192.2mm,43.2mm)(192.2mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.083mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=3060.517mil|Location2.Y=3071.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=3060.517mil|Location2.Y=3071.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.083mm &lt; 0.254mm) Between Pad P1-7(191.24mm,77.38mm) on Multi-Layer And Track (192.2mm,43.2mm)(192.2mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.083mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2960.517mil|Location2.Y=2971.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7577.905mil|Location2.X=7589.155mil|Location1.Y=2960.517mil|Location2.Y=2971.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.083mm &lt; 0.254mm) Between Pad P1-9(191.24mm,74.84mm) on Multi-Layer And Track (192.2mm,43.2mm)(192.2mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.083mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5486.425mil|Location2.X=5497.675mil|Location1.Y=3328.132mil|Location2.Y=3339.382mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5486.425mil|Location2.X=5497.675mil|Location1.Y=3328.132mil|Location2.Y=3339.382mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.105mm &lt; 0.254mm) Between Pad P2-1(139.2mm,84.98mm) on Multi-Layer And Text "D2" (138.908mm,83.025mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.105mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5464.001mil|Location2.X=5475.251mil|Location1.Y=3330.202mil|Location2.Y=3341.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5464.001mil|Location2.X=5475.251mil|Location1.Y=3330.202mil|Location2.Y=3341.452mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad P2-1(139.2mm,84.98mm) on Multi-Layer And Track (138.1mm,43.2mm)(138.1mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2459.729mil|Location2.Y=2470.979mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2459.729mil|Location2.Y=2470.979mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad P2-10(139.2mm,62.12mm) on Multi-Layer And Track (138.1mm,43.2mm)(138.1mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2359.729mil|Location2.Y=2370.979mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2359.729mil|Location2.Y=2370.979mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad P2-11(139.2mm,59.58mm) on Multi-Layer And Track (138.1mm,43.2mm)(138.1mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2259.729mil|Location2.Y=2270.979mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2259.729mil|Location2.Y=2270.979mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad P2-12(139.2mm,57.04mm) on Multi-Layer And Track (138.1mm,43.2mm)(138.1mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2159.729mil|Location2.Y=2170.979mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2159.729mil|Location2.Y=2170.979mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad P2-13(139.2mm,54.5mm) on Multi-Layer And Track (138.1mm,43.2mm)(138.1mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5488.217mil|Location2.X=5495.883mil|Location1.Y=3286.802mil|Location2.Y=3294.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5488.217mil|Location2.X=5495.883mil|Location1.Y=3286.802mil|Location2.Y=3294.468mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad P2-2(139.2mm,82.44mm) on Multi-Layer And Text "D2" (138.908mm,83.025mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=3259.729mil|Location2.Y=3270.979mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=3259.729mil|Location2.Y=3270.979mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad P2-2(139.2mm,82.44mm) on Multi-Layer And Track (138.1mm,43.2mm)(138.1mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=3159.729mil|Location2.Y=3170.979mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=3159.729mil|Location2.Y=3170.979mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad P2-3(139.2mm,79.9mm) on Multi-Layer And Track (138.1mm,43.2mm)(138.1mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=3059.729mil|Location2.Y=3070.979mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=3059.729mil|Location2.Y=3070.979mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad P2-4(139.2mm,77.36mm) on Multi-Layer And Track (138.1mm,43.2mm)(138.1mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2959.729mil|Location2.Y=2970.979mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2959.729mil|Location2.Y=2970.979mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad P2-5(139.2mm,74.82mm) on Multi-Layer And Track (138.1mm,43.2mm)(138.1mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2859.729mil|Location2.Y=2870.979mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2859.729mil|Location2.Y=2870.979mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad P2-6(139.2mm,72.28mm) on Multi-Layer And Track (138.1mm,43.2mm)(138.1mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2759.729mil|Location2.Y=2770.979mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2759.729mil|Location2.Y=2770.979mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad P2-7(139.2mm,69.74mm) on Multi-Layer And Track (138.1mm,43.2mm)(138.1mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2659.729mil|Location2.Y=2670.979mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2659.729mil|Location2.Y=2670.979mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad P2-8(139.2mm,67.2mm) on Multi-Layer And Track (138.1mm,43.2mm)(138.1mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2559.729mil|Location2.Y=2570.979mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5463.994mil|Location2.X=5475.244mil|Location1.Y=2559.729mil|Location2.Y=2570.979mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad P2-9(139.2mm,64.66mm) on Multi-Layer And Track (138.1mm,43.2mm)(138.1mm,93.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7691.893mil|Location2.X=7699.56mil|Location1.Y=3366.037mil|Location2.Y=3373.703mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7691.893mil|Location2.X=7699.56mil|Location1.Y=3366.037mil|Location2.Y=3373.703mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad P5-03(195.6mm,85.14mm) on Multi-Layer And Text "P1" (194.881mm,84.775mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6017.602mil|Location2.X=6028.852mil|Location1.Y=4283.745mil|Location2.Y=4294.995mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6017.602mil|Location2.X=6028.852mil|Location1.Y=4283.745mil|Location2.Y=4294.995mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.22mm &lt; 0.254mm) Between Pad Prog-1(153.4mm,107.34mm) on Multi-Layer And Track (150.225mm,108.61mm)(156.529mm,108.61mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.22mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5782.368mil|Location2.X=5793.618mil|Location1.Y=3779.809mil|Location2.Y=3791.059mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5782.368mil|Location2.X=5793.618mil|Location1.Y=3779.809mil|Location2.Y=3791.059mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R10-1(147.3mm,96.4mm) on Bottom Layer And Track (145.2mm,95.65mm)(146.2mm,95.65mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5782.368mil|Location2.X=5793.618mil|Location1.Y=3838.863mil|Location2.Y=3850.113mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5782.368mil|Location2.X=5793.618mil|Location1.Y=3838.863mil|Location2.Y=3850.113mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R10-1(147.3mm,96.4mm) on Bottom Layer And Track (145.2mm,97.15mm)(146.2mm,97.15mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5725.28mil|Location2.X=5736.53mil|Location1.Y=3779.809mil|Location2.Y=3791.059mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5725.28mil|Location2.X=5736.53mil|Location1.Y=3779.809mil|Location2.Y=3791.059mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R10-2(144.1mm,96.4mm) on Bottom Layer And Track (145.2mm,95.65mm)(146.2mm,95.65mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5725.28mil|Location2.X=5736.53mil|Location1.Y=3838.863mil|Location2.Y=3850.113mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5725.28mil|Location2.X=5736.53mil|Location1.Y=3838.863mil|Location2.Y=3850.113mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R10-2(144.1mm,96.4mm) on Bottom Layer And Track (145.2mm,97.15mm)(146.2mm,97.15mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7830.596mil|Location2.X=7841.846mil|Location1.Y=2572.13mil|Location2.Y=2583.38mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7830.596mil|Location2.X=7841.846mil|Location1.Y=2572.13mil|Location2.Y=2583.38mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R1-1(199.2mm,64.1mm) on Bottom Layer And Track (198.45mm,65.2mm)(198.45mm,66.2mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7889.65mil|Location2.X=7900.9mil|Location1.Y=2572.13mil|Location2.Y=2583.38mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7889.65mil|Location2.X=7900.9mil|Location1.Y=2572.13mil|Location2.Y=2583.38mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R1-1(199.2mm,64.1mm) on Bottom Layer And Track (199.95mm,65.2mm)(199.95mm,66.2mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4996.935mil|Location2.X=5008.185mil|Location1.Y=3385.122mil|Location2.Y=3396.372mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4996.935mil|Location2.X=5008.185mil|Location1.Y=3385.122mil|Location2.Y=3396.372mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R11-1(127.225mm,84.75mm) on Bottom Layer And Track (126.475mm,85.85mm)(126.475mm,86.85mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5055.989mil|Location2.X=5067.239mil|Location1.Y=3385.122mil|Location2.Y=3396.372mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5055.989mil|Location2.X=5067.239mil|Location1.Y=3385.122mil|Location2.Y=3396.372mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R11-1(127.225mm,84.75mm) on Bottom Layer And Track (127.975mm,85.85mm)(127.975mm,86.85mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5063.734mil|Location2.X=5074.984mil|Location1.Y=3506.84mil|Location2.Y=3518.09mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5063.734mil|Location2.X=5074.984mil|Location1.Y=3506.84mil|Location2.Y=3518.09mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.196mm &lt; 0.254mm) Between Pad R11-2(127.225mm,87.95mm) on Bottom Layer And Text "R11" (130.533mm,88.75mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.196mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4996.935mil|Location2.X=5008.185mil|Location1.Y=3442.21mil|Location2.Y=3453.46mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4996.935mil|Location2.X=5008.185mil|Location1.Y=3442.21mil|Location2.Y=3453.46mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R11-2(127.225mm,87.95mm) on Bottom Layer And Track (126.475mm,85.85mm)(126.475mm,86.85mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5055.989mil|Location2.X=5067.239mil|Location1.Y=3442.21mil|Location2.Y=3453.46mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5055.989mil|Location2.X=5067.239mil|Location1.Y=3442.21mil|Location2.Y=3453.46mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R11-2(127.225mm,87.95mm) on Bottom Layer And Track (127.975mm,85.85mm)(127.975mm,86.85mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7830.596mil|Location2.X=7841.846mil|Location1.Y=2629.218mil|Location2.Y=2640.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7830.596mil|Location2.X=7841.846mil|Location1.Y=2629.218mil|Location2.Y=2640.468mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R1-2(199.2mm,67.3mm) on Bottom Layer And Track (198.45mm,65.2mm)(198.45mm,66.2mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7889.65mil|Location2.X=7900.9mil|Location1.Y=2629.218mil|Location2.Y=2640.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7889.65mil|Location2.X=7900.9mil|Location1.Y=2629.218mil|Location2.Y=2640.468mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R1-2(199.2mm,67.3mm) on Bottom Layer And Track (199.95mm,65.2mm)(199.95mm,66.2mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7784.335mil|Location2.X=7795.585mil|Location1.Y=3752.249mil|Location2.Y=3763.499mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7784.335mil|Location2.X=7795.585mil|Location1.Y=3752.249mil|Location2.Y=3763.499mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R12-1(196.4mm,95.7mm) on Bottom Layer And Track (197.5mm,94.95mm)(198.5mm,94.95mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7784.335mil|Location2.X=7795.585mil|Location1.Y=3811.303mil|Location2.Y=3822.553mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7784.335mil|Location2.X=7795.585mil|Location1.Y=3811.303mil|Location2.Y=3822.553mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R12-1(196.4mm,95.7mm) on Bottom Layer And Track (197.5mm,96.45mm)(198.5mm,96.45mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7841.423mil|Location2.X=7852.673mil|Location1.Y=3752.249mil|Location2.Y=3763.499mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7841.423mil|Location2.X=7852.673mil|Location1.Y=3752.249mil|Location2.Y=3763.499mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R12-2(199.6mm,95.7mm) on Bottom Layer And Track (197.5mm,94.95mm)(198.5mm,94.95mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7841.423mil|Location2.X=7852.673mil|Location1.Y=3811.303mil|Location2.Y=3822.553mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7841.423mil|Location2.X=7852.673mil|Location1.Y=3811.303mil|Location2.Y=3822.553mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R12-2(199.6mm,95.7mm) on Bottom Layer And Track (197.5mm,96.45mm)(198.5mm,96.45mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7830.596mil|Location2.X=7841.846mil|Location1.Y=2847.721mil|Location2.Y=2858.971mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7830.596mil|Location2.X=7841.846mil|Location1.Y=2847.721mil|Location2.Y=2858.971mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R2-1(199.2mm,71.1mm) on Bottom Layer And Track (198.45mm,72.2mm)(198.45mm,73.2mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7889.65mil|Location2.X=7900.9mil|Location1.Y=2847.721mil|Location2.Y=2858.971mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7889.65mil|Location2.X=7900.9mil|Location1.Y=2847.721mil|Location2.Y=2858.971mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R2-1(199.2mm,71.1mm) on Bottom Layer And Track (199.95mm,72.2mm)(199.95mm,73.2mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7842.226mil|Location2.X=7849.893mil|Location1.Y=2947.354mil|Location2.Y=2955.021mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7842.226mil|Location2.X=7849.893mil|Location1.Y=2947.354mil|Location2.Y=2955.021mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad R2-2(199.2mm,74.3mm) on Bottom Layer And Text "R3" (197.176mm,75.73mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7830.596mil|Location2.X=7841.846mil|Location1.Y=2904.808mil|Location2.Y=2916.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7830.596mil|Location2.X=7841.846mil|Location1.Y=2904.808mil|Location2.Y=2916.058mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R2-2(199.2mm,74.3mm) on Bottom Layer And Track (198.45mm,72.2mm)(198.45mm,73.2mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7889.65mil|Location2.X=7900.9mil|Location1.Y=2904.808mil|Location2.Y=2916.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7889.65mil|Location2.X=7900.9mil|Location1.Y=2904.808mil|Location2.Y=2916.058mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R2-2(199.2mm,74.3mm) on Bottom Layer And Track (199.95mm,72.2mm)(199.95mm,73.2mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7811.894mil|Location2.X=7823.144mil|Location1.Y=3016.029mil|Location2.Y=3027.279mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7811.894mil|Location2.X=7823.144mil|Location1.Y=3016.029mil|Location2.Y=3027.279mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R3-1(197.1mm,77mm) on Bottom Layer And Track (198.2mm,76.25mm)(199.2mm,76.25mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7811.894mil|Location2.X=7823.144mil|Location1.Y=3075.083mil|Location2.Y=3086.333mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7811.894mil|Location2.X=7823.144mil|Location1.Y=3075.083mil|Location2.Y=3086.333mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R3-1(197.1mm,77mm) on Bottom Layer And Track (198.2mm,77.75mm)(199.2mm,77.75mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7868.982mil|Location2.X=7880.232mil|Location1.Y=3016.029mil|Location2.Y=3027.279mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7868.982mil|Location2.X=7880.232mil|Location1.Y=3016.029mil|Location2.Y=3027.279mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R3-2(200.3mm,77mm) on Bottom Layer And Track (198.2mm,76.25mm)(199.2mm,76.25mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7868.982mil|Location2.X=7880.232mil|Location1.Y=3075.083mil|Location2.Y=3086.333mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7868.982mil|Location2.X=7880.232mil|Location1.Y=3075.083mil|Location2.Y=3086.333mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R3-2(200.3mm,77mm) on Bottom Layer And Track (198.2mm,77.75mm)(199.2mm,77.75mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7830.596mil|Location2.X=7841.846mil|Location1.Y=3422.524mil|Location2.Y=3433.774mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7830.596mil|Location2.X=7841.846mil|Location1.Y=3422.524mil|Location2.Y=3433.774mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R4-1(199.2mm,85.7mm) on Bottom Layer And Track (198.45mm,86.8mm)(198.45mm,87.8mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7889.65mil|Location2.X=7900.9mil|Location1.Y=3422.524mil|Location2.Y=3433.774mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7889.65mil|Location2.X=7900.9mil|Location1.Y=3422.524mil|Location2.Y=3433.774mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R4-1(199.2mm,85.7mm) on Bottom Layer And Track (199.95mm,86.8mm)(199.95mm,87.8mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7830.596mil|Location2.X=7841.846mil|Location1.Y=3479.612mil|Location2.Y=3490.862mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7830.596mil|Location2.X=7841.846mil|Location1.Y=3479.612mil|Location2.Y=3490.862mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R4-2(199.2mm,88.9mm) on Bottom Layer And Track (198.45mm,86.8mm)(198.45mm,87.8mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7889.65mil|Location2.X=7900.9mil|Location1.Y=3479.612mil|Location2.Y=3490.862mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7889.65mil|Location2.X=7900.9mil|Location1.Y=3479.612mil|Location2.Y=3490.862mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R4-2(199.2mm,88.9mm) on Bottom Layer And Track (199.95mm,86.8mm)(199.95mm,87.8mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5354.218mil|Location2.X=5365.468mil|Location1.Y=3861.501mil|Location2.Y=3872.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5354.218mil|Location2.X=5365.468mil|Location1.Y=3861.501mil|Location2.Y=3872.751mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R7-1(136.3mm,98.6mm) on Bottom Layer And Track (135.55mm,96.5mm)(135.55mm,97.5mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5413.272mil|Location2.X=5424.522mil|Location1.Y=3861.501mil|Location2.Y=3872.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5413.272mil|Location2.X=5424.522mil|Location1.Y=3861.501mil|Location2.Y=3872.751mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R7-1(136.3mm,98.6mm) on Bottom Layer And Track (137.05mm,96.5mm)(137.05mm,97.5mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5354.218mil|Location2.X=5365.468mil|Location1.Y=3804.414mil|Location2.Y=3815.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5354.218mil|Location2.X=5365.468mil|Location1.Y=3804.414mil|Location2.Y=3815.664mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R7-2(136.3mm,95.4mm) on Bottom Layer And Track (135.55mm,96.5mm)(135.55mm,97.5mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5413.272mil|Location2.X=5424.522mil|Location1.Y=3804.414mil|Location2.Y=3815.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5413.272mil|Location2.X=5424.522mil|Location1.Y=3804.414mil|Location2.Y=3815.664mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R7-2(136.3mm,95.4mm) on Bottom Layer And Track (137.05mm,96.5mm)(137.05mm,97.5mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5236.108mil|Location2.X=5247.358mil|Location1.Y=3804.414mil|Location2.Y=3815.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5236.108mil|Location2.X=5247.358mil|Location1.Y=3804.414mil|Location2.Y=3815.664mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R8-1(133.3mm,95.4mm) on Bottom Layer And Track (132.55mm,96.5mm)(132.55mm,97.5mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5295.162mil|Location2.X=5306.412mil|Location1.Y=3804.414mil|Location2.Y=3815.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5295.162mil|Location2.X=5306.412mil|Location1.Y=3804.414mil|Location2.Y=3815.664mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R8-1(133.3mm,95.4mm) on Bottom Layer And Track (134.05mm,96.5mm)(134.05mm,97.5mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5236.108mil|Location2.X=5247.358mil|Location1.Y=3861.501mil|Location2.Y=3872.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5236.108mil|Location2.X=5247.358mil|Location1.Y=3861.501mil|Location2.Y=3872.751mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R8-2(133.3mm,98.6mm) on Bottom Layer And Track (132.55mm,96.5mm)(132.55mm,97.5mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5295.162mil|Location2.X=5306.412mil|Location1.Y=3861.501mil|Location2.Y=3872.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5295.162mil|Location2.X=5306.412mil|Location1.Y=3861.501mil|Location2.Y=3872.751mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R8-2(133.3mm,98.6mm) on Bottom Layer And Track (134.05mm,96.5mm)(134.05mm,97.5mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5294.178mil|Location2.X=5305.428mil|Location1.Y=3538.667mil|Location2.Y=3549.917mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5294.178mil|Location2.X=5305.428mil|Location1.Y=3538.667mil|Location2.Y=3549.917mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R9-1(133.15mm,90.275mm) on Bottom Layer And Track (134.25mm,89.525mm)(135.25mm,89.525mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5294.178mil|Location2.X=5305.428mil|Location1.Y=3597.721mil|Location2.Y=3608.971mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5294.178mil|Location2.X=5305.428mil|Location1.Y=3597.721mil|Location2.Y=3608.971mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R9-1(133.15mm,90.275mm) on Bottom Layer And Track (134.25mm,91.025mm)(135.25mm,91.025mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5351.265mil|Location2.X=5362.515mil|Location1.Y=3538.667mil|Location2.Y=3549.917mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5351.265mil|Location2.X=5362.515mil|Location1.Y=3538.667mil|Location2.Y=3549.917mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R9-2(136.35mm,90.275mm) on Bottom Layer And Track (134.25mm,89.525mm)(135.25mm,89.525mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5351.265mil|Location2.X=5362.515mil|Location1.Y=3597.721mil|Location2.Y=3608.971mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5351.265mil|Location2.X=5362.515mil|Location1.Y=3597.721mil|Location2.Y=3608.971mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad R9-2(136.35mm,90.275mm) on Bottom Layer And Track (134.25mm,91.025mm)(135.25mm,91.025mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7501.854mil|Location2.X=7513.104mil|Location1.Y=4287.682mil|Location2.Y=4298.932mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7501.854mil|Location2.X=7513.104mil|Location1.Y=4287.682mil|Location2.Y=4298.932mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.22mm &lt; 0.254mm) Between Pad RESET-1(191.1mm,107.44mm) on Multi-Layer And Track (187.925mm,108.71mm)(194.229mm,108.71mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.22mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7541.224mil|Location2.X=7552.474mil|Location1.Y=4002.434mil|Location2.Y=4013.684mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7541.224mil|Location2.X=7552.474mil|Location1.Y=4002.434mil|Location2.Y=4013.684mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.11mm &lt; 0.254mm) Between Pad RESET-2(191.1mm,102.36mm) on Multi-Layer And Text "C2" (189.892mm,101.15mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.11mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5290.718mil|Location2.X=5298.385mil|Location1.Y=3405.609mil|Location2.Y=3413.276mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5290.718mil|Location2.X=5298.385mil|Location1.Y=3405.609mil|Location2.Y=3413.276mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad RT1-1(134.545mm,86.85mm) on Bottom Layer And Text "Q1" (134.391mm,85.1mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5494.552mil|Location2.X=5505.802mil|Location1.Y=4310.714mil|Location2.Y=4323.29mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5494.552mil|Location2.X=5505.802mil|Location1.Y=4310.714mil|Location2.Y=4323.29mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.128mm &lt; 0.254mm) Between Pad S1-S1(140.3mm,108.6mm) on Multi-Layer And Track (128.6mm,109.2mm)(139.005mm,109.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.128mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5138.788mil|Location2.X=5150.038mil|Location1.Y=4032.539mil|Location2.Y=4045.115mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5138.788mil|Location2.X=5150.038mil|Location1.Y=4032.539mil|Location2.Y=4045.115mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.145mm &lt; 0.254mm) Between Pad S1-S2(128.9mm,102.6mm) on Multi-Layer And Track (130.195mm,102mm)(140.6mm,102mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.145mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDB32QSXARU2XVHJW2LGIMWYEZCJVI4I3UOCTNURIPMJEKZ51ZWYAE"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7566.737mil|Location2.X=7577.987mil|Location1.Y=2105.517mil|Location2.Y=2116.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7566.737mil|Location2.X=7577.987mil|Location1.Y=2105.517mil|Location2.Y=2116.767mil|Absolute=True">Silk To Silk Clearance Constraint: (0.054mm &lt; 0.254mm) Between Text "25" (191.748mm,52.996mm) on Bottom Overlay And Track (187.43mm,53.25mm)(192.51mm,53.25mm) on Bottom Overlay Silk Text to Silk Clearance [0.054mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7466.737mil|Location2.X=7477.987mil|Location1.Y=2105.517mil|Location2.Y=2116.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7466.737mil|Location2.X=7477.987mil|Location1.Y=2105.517mil|Location2.Y=2116.767mil|Absolute=True">Silk To Silk Clearance Constraint: (0.054mm &lt; 0.254mm) Between Text "26" (189.208mm,52.996mm) on Bottom Overlay And Track (187.43mm,53.25mm)(192.51mm,53.25mm) on Bottom Overlay Silk Text to Silk Clearance [0.054mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5448.859mil|Location2.X=5456.526mil|Location1.Y=3284.559mil|Location2.Y=3292.226mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5448.859mil|Location2.X=5456.526mil|Location1.Y=3284.559mil|Location2.Y=3292.226mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "D2" (138.908mm,83.025mm) on Bottom Overlay And Track (137.93mm,53.23mm)(137.93mm,84.345mm) on Bottom Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5444.213mil|Location2.X=5456.812mil|Location1.Y=3328.427mil|Location2.Y=3339.677mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5444.213mil|Location2.X=5456.812mil|Location1.Y=3328.427mil|Location2.Y=3339.677mil|Absolute=True">Silk To Silk Clearance Constraint: (0.171mm &lt; 0.254mm) Between Text "D2" (138.908mm,83.025mm) on Bottom Overlay And Track (137.93mm,84.345mm)(137.93mm,86.25mm) on Bottom Overlay Silk Text to Silk Clearance [0.171mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7672.214mil|Location2.X=7679.881mil|Location1.Y=3392.814mil|Location2.Y=3400.481mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7672.214mil|Location2.X=7679.881mil|Location1.Y=3392.814mil|Location2.Y=3400.481mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "P1" (194.881mm,84.775mm) on Bottom Overlay And Track (194.355mm,81.33mm)(194.355mm,91.49mm) on Bottom Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5492.667mil|Location2.X=5503.917mil|Location1.Y=4023.141mil|Location2.Y=4034.391mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Abinegar\Zigbee\zigbee_orangepi_v3\zigo_pcb2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5492.667mil|Location2.X=5503.917mil|Location1.Y=4023.141mil|Location2.Y=4034.391mil|Absolute=True">Silk To Silk Clearance Constraint: (0.212mm &lt; 0.254mm) Between Text "S1" (139.566mm,101.625mm) on Top Overlay And Track (130.195mm,102mm)(140.6mm,102mm) on Top Overlay Silk Text to Silk Clearance [0.212mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
