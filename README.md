@@ -182,6 +182,8 @@ The Zigbee Router is a standalone node designed to extend the range and stabilit
 * **Antenna:** External antenna via IPEX connector.
 * **Enclosure:** Custom casing.
 
+![ZigBee Router](Images/IMG_6862.jpg)
+
 ## 🏗️ Functionality
 * **Signal Repeater:** Relays data between End Devices and the Hub.
 * **Mesh Networking:** Healing and routing for network stability.
@@ -215,6 +217,9 @@ The In-Wall Switch is a smart end device capable of controlling AC loads (lights
 * **Power:** **WX-DC12003** AC-DC converter (Mains to 5V) + **AMS1117-3.3**.
 * **Relay:** **HF49FD** (5A, 250V AC) for load switching.
 * **Safety:** Includes a slow-blow fuse (0697H1000-02) for overcurrent protection.
+
+![ZigBee In-Wall Switch1](Images/IMG_6863.jpg)
+![ZigBee In-Wall Switch2](Images/IMG_6864.jpg)
 
 ## 💻 Firmware Logic (C++/Arduino)
 The firmware was developed using the **Arduino IDE** and the **ESP32 Zigbee SDK**. The source code is located in the `/In-Wall-Switch/Firmware` directory.
