@@ -38,6 +38,8 @@ The Hub acts as the brain of the system, hosting the MQTT broker and bridging Zi
 * **Carrier Board:** Custom-designed PCB acting as the main hub.
 * **Zigbee Module:** **RF-BM-2652P4I** (based on TI CC2652P7), integrated directly onto the custom PCB.
 
+![ZigBee Hub](images/IMG_6856.jpg)
+
 ## 💻 Software Setup
 
 ### 1. Orange Pi Setup (OS & Connectivity)
