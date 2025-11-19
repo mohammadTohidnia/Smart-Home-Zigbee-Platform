@@ -130,6 +130,7 @@ Edit the configuration file to target the custom PCB's serial port and the local
 ### 5. Flashing the Firmware (CC2652P7)
 The **RF-BM-2652P4I** chip on the PCB requires the Z-Stack Coordinator firmware.
 
+* **Firmware:** Use this [link](https://github.com/JelmerT/cc2538-bsl) to access the required firmware based on your hardware.
 * **Tool:** [cc2538-bsl](https://github.com/JelmerT/cc2538-bsl).
 * **Steps:**
     1.  Hold the **BOOT** button on the PCB and press **RESET** to enter bootloader mode.
