@@ -1,8 +1,8 @@
-# Smart-Home-Zigbee-Platform 🏠
+# Smart-Home-Zigbee-Platform 
 
 **A comprehensive, cost-effective, and scalable solution for residential automation using the Zigbee protocol.**
 
-## 📖 Project Overview
+## Project Overview
 This project addresses common challenges in smart home development, such as power consumption, network coverage, and device integration. We have designed a complete system based on the Zigbee protocol that includes custom hardware and software integration.
 
 Key capabilities include:
@@ -12,35 +12,35 @@ Key capabilities include:
 * **Extended Network Coverage:** Robust signal stability using custom router nodes.
 * **High Scalability:** Designed to support a large number of devices in a mesh network.
 
-## 🏗️ System Architecture
+## System Architecture
 The platform consists of three main components:
 
-1.  **Zigbee Hub (Central Node)** 🧠
+1.  **Zigbee Hub (Central Node)** 
     * **Hardware:** A **custom-designed PCB** hosting an **Orange Pi Zero 3**. It integrates the Zigbee module and power management to act as the network coordinator.
     * **Software:** Runs **Zigbee2MQTT** to bridge Zigbee traffic to the MQTT protocol, transmitting data to **ThingsBoard** for monitoring and control.
 
-2.  **Zigbee Router (Repeater)** 📡
+2.  **Zigbee Router (Repeater)** 
     * **Function:** Enhances network coverage and signal stability by relaying messages between End Devices and the Hub.
     * **Design:** A standalone custom PCB powered by a 5V adapter.
 
-3.  **In-Wall Switch (End Device)** 💡
+3.  **In-Wall Switch (End Device)** 
     * **Function:** Smart lighting control with manual override capabilities.
     * **Design:** A compact custom PCB designed to fit into standard wall switch boxes, controlling high-voltage loads via a relay.
 
 ---
 
-# 1. Zigbee Hub (Central Node) 🧠
+# 1. Zigbee Hub (Central Node) 
 
 The Hub acts as the brain of the system, hosting the MQTT broker and bridging Zigbee communication to the ThingsBoard platform.
 
-## ⚙️ Hardware
+## Hardware
 * **Core:** [Orange Pi Zero 3](http://www.orangepi.org/).
 * **Carrier Board:** Custom-designed PCB acting as the main hub.
 * **Zigbee Module:** **RF-BM-2652P4I** (based on TI CC2652P7), integrated directly onto the custom PCB.
 
 ![ZigBee Hub](Images/IMG_6856.jpg)
 
-## 💻 Software Setup
+## Software Setup
 
 ### 1. Orange Pi Setup (OS & Connectivity)
 We used the **Orange Pi Zero 3** as the computational platform.
@@ -141,7 +141,7 @@ The **RF-BM-2652P4I** chip on the PCB requires the Z-Stack Coordinator firmware.
         python3 cc2538-bsl.py -p /dev/ttyS5 -evw coordinator_firmware.hex
         ```
 
-### 6. ThingsBoard Integration (Cloud Bridge) ☁️
+### 6. ThingsBoard Integration (Cloud Bridge) 
 To enable remote monitoring and control, we developed a custom Python script that acts as a bridge between the local MQTT broker (Mosquitto) and the ThingsBoard Cloud platform.
 
 #### Features
@@ -157,7 +157,7 @@ To enable remote monitoring and control, we developed a custom Python script tha
     ```
 
 2.  **Configuration:**
-    Open the python script (`/Software/Python_Bridge/bridge.py`) and update the **ThingsBoard settings**:
+    Open the python script (`/Software/codes/zig_to_tb/zig_to_tb3.py`) and update the **ThingsBoard settings**:
     ```python
     THINGSBOARD_HOST = 'tb2.thingsware.cloud'
     ACCESS_TOKEN = 'YOUR_ACCESS_TOKEN' # Replace with your actual ThingsBoard Device Token
@@ -171,11 +171,11 @@ To enable remote monitoring and control, we developed a custom Python script tha
 
 ---
 
-# 2. Zigbee Router (Repeater) 📡
+# 2. Zigbee Router (Repeater) 
 
 The Zigbee Router is a standalone node designed to extend the range and stability of the network. It operates solely using the Zigbee module and does not require a computational board.
 
-## ⚙️ Hardware
+## Hardware
 * **Zigbee Module:** **RF-BM-2652P4I** (TI CC2652P7).
     * Selected for its high output power (20 dBm) to maximize range.
 * **Power Supply:** 5V 1A adapter with an **AMS1117-3.3** regulator.
@@ -184,11 +184,11 @@ The Zigbee Router is a standalone node designed to extend the range and stabilit
 
 ![ZigBee Router](Images/IMG_6862.jpg)
 
-## 🏗️ Functionality
+## Functionality
 * **Signal Repeater:** Relays data between End Devices and the Hub.
 * **Mesh Networking:** Healing and routing for network stability.
 
-## 💻 Firmware Setup
+## Firmware Setup
 To configure and flash the router, we use the **PTVO** tool to generate a custom firmware image, followed by `cc2538-bsl` to upload it.
 
 ### Step 1: Generate Firmware
@@ -208,11 +208,11 @@ To configure and flash the router, we use the **PTVO** tool to generate a custom
 
 ---
 
-# 3. Zigbee In-Wall Switch (End Device) 💡
+# 3. Zigbee In-Wall Switch (End Device) 
 
 The In-Wall Switch is a smart end device capable of controlling AC loads (lights/appliances). It supports both wireless control via Zigbee and manual control via a physical button.
 
-## ⚙️ Hardware
+## Hardware
 * **Chip:** **ESP32-C6** (Supports Zigbee 3.0, Wi-Fi 6, BLE 5.0).
 * **Power:** **WX-DC12003** AC-DC converter (Mains to 5V) + **AMS1117-3.3**.
 * **Relay:** **HF49FD** (5A, 250V AC) for load switching.
@@ -221,7 +221,7 @@ The In-Wall Switch is a smart end device capable of controlling AC loads (lights
 ![ZigBee In-Wall Switch1](Images/IMG_6863.jpg)
 ![ZigBee In-Wall Switch2](Images/IMG_6864.jpg)
 
-## 💻 Firmware Logic (C++/Arduino)
+## Firmware Logic (C++/Arduino)
 The firmware was developed using the **Arduino IDE** and the **ESP32 Zigbee SDK**. The source code is located in the `/In-Wall-Switch/Firmware` directory.
 
 ### Key Features:
