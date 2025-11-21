@@ -166,7 +166,7 @@ To enable remote monitoring and control, we developed a custom Python script tha
 3.  **Running the Bridge:**
     You can run the script manually for testing:
     ```bash
-    python3 bridge.py
+    python3 zig_to_tb3.py
     ```
 
 ---
@@ -221,7 +221,7 @@ The In-Wall Switch is a smart end device capable of controlling AC loads (lights
 ![ZigBee In-Wall Switch1](Images/IMG_6863.jpg)
 ![ZigBee In-Wall Switch2](Images/IMG_6864.jpg)
 
-## Firmware Logic (C++/Arduino)
+## Firmware Logic (C++)
 The firmware was developed using the **Arduino IDE** and the **ESP32 Zigbee SDK**. The source code is located in the `/In-Wall-Switch/Firmware` directory.
 
 ### Key Features:
